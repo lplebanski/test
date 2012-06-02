@@ -1,0 +1,3 @@
+<% questions.each do |question| %>
+<li><%= link_to truncate(question.tiltle, :length => 30, :omission => '...'), question %></li>
+<% end %>

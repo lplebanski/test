@@ -1,0 +1,17 @@
+<header>
+    <h2>Logowanie</h2>
+</header>
+<div id="signin">
+    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <div class="inputs">
+        <%= f.input :email, :required => false, :autofocus => true %>
+        <%= f.input :password, :required => false %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Zaloguj", class: "btn-custom" %>
+      </div>
+    <% end %>
+
+    <%= render "links" %>
+</div>

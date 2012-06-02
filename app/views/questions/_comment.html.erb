@@ -1,0 +1,15 @@
+<%= will_paginate @question.comments.page(params[:page]).per_page(5) %>
+<% @question.comments.order('created_at DESC').page(params[:page]).per_page(5).each do |comment| %>
+<div class="question">
+  <div class="user">
+  
+    <img src="/assets/user-icon.jpg">
+    <p><%= comment.user.name %></p>
+  </div>
+  <div class="content">
+    <div><%= comment.body %></div>    
+    <div class="date"><%= comment.created_at.strftime("%d %B %Y o %H:%M") %> </div>
+ </div>
+</div>
+<% end %>
+<%= will_paginate @question.comments.page(params[:page]).per_page(5) %>

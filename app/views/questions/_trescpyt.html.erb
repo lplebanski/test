@@ -1,0 +1,13 @@
+<div class="question">
+  <div class="user">
+    <img src="/assets/user-icon.jpg">
+    <p><%= @question.user.name %></p>
+  </div>
+  <div class="content">
+    <div><h2><%= @question.tiltle %></h2></div>
+    <br/>
+    <div><%= @question.content %></div>
+    <div class="comments">Liczba odpowiedzi : <%= @question.comments.count %></div>
+    <div class="date"><%= @question.created_at.strftime("%d %B %Y o %H:%M") %></div>
+  </div>
+</div>

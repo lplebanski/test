@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projekt na zaliczenie</title>
+    <%= stylesheet_link_tag    "reset", :media => "all" %>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    
+
+</head>
+<body>
+    <section id="informations">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+    </section>
+    <nav id="menu">
+        <ul class="left">
+            <li><%= link_to 'Strona Główna', root_path %></li>
+            <li><a href="#"><%= link_to 'Kontakt', '/contact' %></a></li>
+        </ul>
+        <ul class="right">
+            <% if user_signed_in? %>
+                <%= link_to 'Utworz Pytanie  ', new_question_path %>
+                <%= link_to('Moje Konto  ', '/account') %>
+                <%= link_to('Users  ', '/user') %>
+                <%= link_to('Wyloguj', destroy_user_session_path, :method => 'delete') %>
+            <% else %>
+                <%= link_to('Zaloguj', new_user_session_path)  %>
+                <%= link_to('Rejestracja', new_user_registration_path)  %>
+            <% end %>
+        </ul>
+    </nav>
+    <header>
+        <div class="search">
+            <%= form_tag questions_path, method: :get, id: "questions_search", class: "form-inline" do %>
+            <%= text_field_tag :query, params[:query] %>
+            <%= submit_tag "Szukaj", name: nil, class: "btn" %>
+            <% end %>
+        </div>
+    </header>
+    <section id="content">
+        <%= yield %>
+    </section>
+</body>
+</html>

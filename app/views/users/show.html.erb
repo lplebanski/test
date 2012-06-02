@@ -1,0 +1,29 @@
+<header><h2>Moje Konto</h2></header>
+<div id="myaccount">
+    <table>
+        <tbody>
+            <tr>
+                <td><b><%= link_to('Edytuj konto', edit_user_registration_path) %></b></td></td>
+                <td rowspan="5"><img src="assets/my-account.png"></td>
+                <td class="bg-highlight">Nazwa użytkownika :</td>
+                <td class="bg-highlight"><%= @user.name %></td>
+            </tr>
+            <tr>
+                <td></td></td>
+                <td class="bg-highlight">E-mail :</td>
+                <td class="bg-highlight"><%= @user.email %></td>
+            </tr>
+            <tr>
+                <td></td></td>
+                <td class="bg-highlight">Ilość zadanych pytań :</td>
+                <td class="bg-highlight"><%= @user.questions.count %></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="bg-highlight">Ilość wystawionych komentarzy :</td>
+                <td class="bg-highlight"><%= @user.comments.count %></td>
+            </tr>
+            <tr></tr>
+        </tbody>
+    </table>
+</div>

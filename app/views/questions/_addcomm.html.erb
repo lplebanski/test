@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+<header>
+  <h2>Odpowiedz na pytanie</h2>
+</header>
+
+<div>
+<%= form_for([@question, @question.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.text_area :body, placeholder: "Napisz odpowiedz" %>
+  </div>
+  <div class="actions">
+<%= f.submit "Utworz post", class: "btn-custom" %>
+  </div>
+<% end %>
+</div>
+
+<% end %>

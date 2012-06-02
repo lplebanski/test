@@ -1,0 +1,22 @@
+<head><meta http-equiv="refresh" content="10" /></head>
+<header>
+  <h2>Pytania</h2>
+</header>
+
+<%= will_paginate @questions %>
+
+<% @questions.each do |question| %>
+    <div class="question">
+      <div class="user">
+        <img src="/assets/user-icon.jpg">
+        <p><%= question.user.name %></p>
+      </div>
+      <div class="content">
+        <div><a href="#"><h2><%= link_to truncate(question.tiltle, :length => 60, :omission => '...'), question %></h2></a></div>
+        <div class="comments">Liczba odpowiedzi : <%= question.comments.count %></div>
+        <div class="date"><%= question.created_at.strftime("%d %B %Y at %H:%M") %></div>
+      </div>
+    </div>
+<% end %>
+
+<%= will_paginate @questions %>

@@ -1,0 +1,22 @@
+<header><h2>Lista uzytkownikow</h2></header>
+
+<table id="questions" class="display">
+    <thead>
+        <tr>
+            <th>Nazwa użytkownika: </th>
+            <th>E-mail:</th>
+            <th>Ilość zadanych pytań : </th>
+            <th> Ilość udzielonych odpowiedzi: </th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.questions.count %></td>
+            <td><%= user.comments.count %></td>
+        </tr>
+         <% end %>
+    </tbody>
+</table>
