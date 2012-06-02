@@ -6,7 +6,7 @@ gem 'rails', '3.2.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # gem 'sqlite3'
-gem 'pg'
+# gem 'pg'
 gem 'will_paginate'
 gem 'devise', '2.0.0'
 
@@ -42,3 +42,11 @@ gem 'kaminari'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+group :production do
+  gem 'pg', '0.12.2'
+end
+
+
+group :development, :test do
+  gem 'sqlite3'
+end
